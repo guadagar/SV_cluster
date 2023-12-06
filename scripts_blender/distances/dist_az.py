@@ -1,10 +1,11 @@
 import bpy
 import numpy as np
 import pickle
-import cellblender 
+import cellblender
 
 '''This file calculates the distance from each vesicle to the az (the minimum distance). I used a list with the active zones
 in case the terminal is a MSB (in this case it computes both, but then saves the minimum distance).
+The output is a python file (per bouton) with all the distances.
 02-02-22
 GCG
 '''
@@ -12,7 +13,8 @@ GCG
 #This is a list with the azs for each bouton
 the_filename = 'fw_az_lists'
 azs = pickle.load(open(the_filename,'rb'))#
-    #euclidean distance
+
+#euclidean distance
 def dist(x1,y1,z1,x2,y2,z2):
     d = np.sqrt((x1-x2)**2+(y1-y2)**2+(z1-z2)**2)
     return d
@@ -44,7 +46,7 @@ for i in azs:
     flat_reg = [item for sublist in regions for item in sublist]
     nr_az_indx = 0
     #print(i,obj_n,ax_name,flat_reg)
-       
+
     for j in i: #loopeo in the azs
         if j in flat_reg:
             bpy.context.scene.objects.active = bpy.data.objects[ax_name]
@@ -55,7 +57,7 @@ for i in azs:
             #this leave us in edit mode
             bpy.ops.object.mode_set(mode='OBJECT')
             selectedVerts = [v for v in bpy.context.active_object.data.vertices if v.select]
-            
+
             n_az = len(selectedVerts)
             verts_az = np.zeros((n_az,3))
             print(n_az)
@@ -69,20 +71,20 @@ for i in azs:
             bpy.ops.mesh.select_all(action='TOGGLE')
             bpy.ops.object.mode_set(mode='OBJECT')
              #select the vesicles associated with this az
-            dm = np.zeros((n,n_az)) 
+            dm = np.zeros((n,n_az))
             for k in range(0,n):
                 for s in range(0,n_az):
                     dm[k,s] = dist(verts[k,0],verts[k,1],verts[k,2], verts_az[s,0],verts_az[s,1], verts_az[s,2])
-            
+
             #print(np.shape(dm),nr_az,dm)
             for k in range(0,n):
                 dmin[k,nr_az_indx] = np.min(dm[k,:])
-            nr_az_indx = nr_az_indx + 1    
+            nr_az_indx = nr_az_indx + 1
             #bpy.ops.object.editmode_toggle()
             #bpy.context.scene.objects.active = bpy.data.objects[obj.name]
         else:
             print('this region not found',j)
-    
+
     the_filename = obj_name+'_az_dis'
     with open(the_filename, 'wb') as f:#
         pickle.dump(dmin, f)

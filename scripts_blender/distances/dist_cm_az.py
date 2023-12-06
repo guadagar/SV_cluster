@@ -3,8 +3,9 @@ import numpy as np
 import pickle
 import cellblender
 
-'''This file calculates the distance from each vesicle to the az (the minimun distance). I used a list with the active zones
-in case the terminal is a MSB - it plots the values
+'''This file calculates the distance from center of the cloud to the AZ. I used a list with the active zones
+in case the terminal is a MSB. The output is a python file per bouton with all the distances (with the name of the cloud).
+GCG
 02-02-22
 '''
 
