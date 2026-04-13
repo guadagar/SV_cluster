@@ -6,7 +6,7 @@ import seaborn as sns
 import pandas as pd
 
 '''
-This script generates fig 2 panel d
+This script generates fig S5
 GCG
 '''
 

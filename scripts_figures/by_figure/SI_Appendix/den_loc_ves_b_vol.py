@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib as mpl
 
 '''
-This script generates fig 3 panel k
+This script generates fig S6, local synaltic density vs bouton volume 
 GCG
 '''
 

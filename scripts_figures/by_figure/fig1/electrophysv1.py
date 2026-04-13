@@ -6,7 +6,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 '''
-This script generates the electrophysiology image
+This script generates the inset in the electrophysiology image (fig 1 b)
 GCG
 '''
 

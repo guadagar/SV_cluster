@@ -8,7 +8,7 @@ from scipy import stats
 from matplotlib.lines import Line2D
 
 '''
-This scripts generates Fig S2 
+This scripts generates Fig S3b 
 GCG
 '''
 

@@ -1,9 +1,13 @@
-
 #!/usr/bin/env python
 import matplotlib.ticker as mticker
 import numpy as np
 from scipy import stats
 import pandas as pd
+
+'''
+This script is used to calculate statistics for various population of boutons
+GCG
+'''
 
 data = pd.read_csv('../../../latest_results/data/all_data_together/all_data_last.csv')
 

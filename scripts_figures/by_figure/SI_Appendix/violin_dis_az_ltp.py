@@ -7,7 +7,7 @@ import numpy as np
 from scipy import stats
 
 '''
-This scripts generates Fig S2 
+This scripts generates Fig S4b
 GCG
 '''
 

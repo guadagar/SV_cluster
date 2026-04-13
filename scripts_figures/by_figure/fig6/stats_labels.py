@@ -12,6 +12,8 @@ from matplotlib.lines import Line2D
 from scipy import stats
 
 '''
+Stats stable vs potentiated boutons
+GCG
 '''
 
 params = {'axes.labelsize': 6,

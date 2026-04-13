@@ -8,7 +8,10 @@ import pandas as pd
 import seaborn as sns
 from matplotlib.ticker import FormatStrFormatter,ScalarFormatter
 import matplotlib as mpl
+
 '''
+This script generates Fig S2a  
+GCG
 '''
 
 params = {'axes.labelsize': 6,

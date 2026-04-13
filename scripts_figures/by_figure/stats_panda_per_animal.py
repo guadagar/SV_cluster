@@ -5,6 +5,11 @@ import numpy as np
 from scipy import stats
 import pandas as pd
 
+'''
+This script is used to calculate statistics between different animals 
+GCG
+'''
+
 data = pd.read_csv('../../../latest_results/data/all_data_together/all_data_last.csv')
 
 data['den'] = data['nr_ves_b']/data['final_chull_mvv_ax']

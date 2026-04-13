@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import numpy as np
 import  matplotlib.pyplot as plt
 import pickle
@@ -12,9 +11,8 @@ from sklearn import decomposition
 from matplotlib.lines import Line2D
 from scipy import stats
 '''
-
+This script generated the labels from PCA for the boutons with mito
 GCG
-12.20
 '''
 params = {'axes.labelsize': 10,
            'axes.titlesize': 10,

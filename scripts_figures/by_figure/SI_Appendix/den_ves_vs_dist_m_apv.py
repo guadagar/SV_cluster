@@ -8,7 +8,7 @@ import pandas as pd
 from matplotlib.lines import Line2D
 
 '''
-This script generates fig 5 panel a - in env ves_det
+This script generates fig S7 
 GCG
 '''
 

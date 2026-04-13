@@ -4,6 +4,11 @@ import matplotlib.ticker as mticker
 import numpy as np
 from scipy import stats
 import pandas as pd
+'''
+This script is used to calculate statistics between multi-synaptic boutons (MSB) and single synaptic boutons (SSB) 
+GCG
+'''
+
 
 data = pd.read_csv('../../../../latest_results/data/all_data_together/all_data.csv')
 

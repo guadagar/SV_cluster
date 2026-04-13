@@ -12,6 +12,8 @@ from matplotlib.lines import Line2D
 from scipy import stats
 
 '''
+This scrip generates the labels from PCA
+GCG
 '''
 
 params = {'axes.labelsize': 6,
