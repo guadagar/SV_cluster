@@ -7,11 +7,11 @@ from scipy.stats import variation,normaltest,shapiro
 import csv
 
 
-'''I go over all the distances to get the media & sd of the distribution
+'''This script goes over all the distances to get the median & sd of the distributions
 12.1.22
 GCG
 '''
-
+#input path
 folder_path = './dis_ves/FHLTD/'
 
 #name output file

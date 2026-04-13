@@ -4,20 +4,20 @@ import pickle
 from scipy.spatial import Delaunay, Voronoi,ConvexHull,Delaunay,voronoi_plot_2d
 import re
 
-'''This script generates the convex hull for a set of vertices. The intersection with mitos and the axons are considered.
+'''This script generates the convex hull for a set of SVs. The intersection with mitos and the axons are considered.
 The meshes are also triangulated to calculate the volumes.
 GCG
 06.02.22
 '''
 
-#select all the clouds of vesicles
+#select all the clusters of synaptic vesicles
 objs = bpy.context.scene.objects
 my_pat = re.compile('.*_ssvr$')
 my_obj = [obj for obj in objs if my_pat.match(obj.name)!=None]
 for i in my_obj:
     i.select=  True
 
-#I loop over all clouds
+#Loop over all clusters
 if bpy.context.selected_objects != []: # ssvr all
     for obj in bpy.context.selected_objects:
 
@@ -35,14 +35,14 @@ if bpy.context.selected_objects != []: # ssvr all
             verts.append((points[i,0],points[i,1],points[i,2]))
 
 
-        chull_name = obj_name + str('_vert_hull')
+        chull_name = obj_name + str('_vert_hull') #name of the created objects
         mymesh = bpy.data.meshes.new(chull_name)
         myobject = bpy.data.objects.new(chull_name,mymesh)
         bpy.context.scene.objects.link(myobject)
         mymesh.from_pydata(verts,[],[])
         mymesh.update()
 
-        #convex-hull of the vertices
+        #convex-hull of the SVs
         bpy.context.scene.objects.active = myobject
         myobject.select = True
         bpy.ops.object.editmode_toggle()
@@ -54,7 +54,7 @@ if bpy.context.selected_objects != []: # ssvr all
         myobject = bpy.context.scene.objects.active
         myobject.select = True
         bpy.ops.object.modifier_add(type='BOOLEAN')
-        #     #boolean operation with the mitos
+        #I perform a boolean operation with the mitos
         try:
             #mito_name = obj_name.split('_')[0] + str('mito1')
             #print(obj_name, mito_name)
