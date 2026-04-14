@@ -5,7 +5,7 @@ from scipy.spatial import Delaunay
 import re
 
 '''This script calculates the Delaunay triangulation for a cluster of synaptic vesicles (SVs). For the connected SVs, I compute
-the distance, and calculate the average. The output is a pickle file per bouton with all the averaged distances for each SV.
+the distances and calculate the average. The output is a pickle file per bouton with all the averaged distances for each SV.
 GCG
 11.30.22
 '''
@@ -53,7 +53,8 @@ if bpy.context.selected_objects != []:
         #print(av_de_ne)
         av_f = av_de_ne[np.logical_not(np.isnan(av_de_ne))]
         #print(np.mean(av_f),np.std(av_f), np.median(av_f))
-        #generate delaunay mesh
+
+        #Create a delaunay triangulation for each cluster
         #edges = []
 
         #for i,p in enumerate(verts):

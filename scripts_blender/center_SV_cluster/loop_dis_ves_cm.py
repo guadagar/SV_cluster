@@ -6,7 +6,7 @@ import os,glob
 from scipy.stats import variation
 import csv
 
-'''This script loops over the distances and generate text files with the median distance to the cluster's center.
+'''This script loops over the distances and generates a text file with the median distance to the cluster's center.
 02.01.22
 GCG
 '''
