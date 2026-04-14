@@ -6,23 +6,20 @@ import os,glob
 from scipy.stats import variation
 import csv
 
-'''
+'''This script loops over the distances and generate text files with the median distance to the cluster's center.
+02.01.22
 GCG
 '''
 
-
-folder_path = './dis_ves_ol/fp/'
-f = open('./dis_ves_ol/fp_stats.txt','w')
-#g = open('fh_az_dis_nmito_n.txt','w')
+folder_path = './dis_cm/xr/'
+f = open('./dis_cm/xr_dis_ves_cm_median.txt','w')
 
 for filename in glob.glob(os.path.join(folder_path,'*_ssvr')):
     x = filename.split('/')
-    #print(x)
     xname = x[3].split('_')[0]
     di = pickle.load(open(filename,'rb'))
-    #print(di[di!= 0])
     a_di = np.array(di[di!= 0])
-    #print(filename, np.mean(di_min))
+
     f.write(xname)
     f.write('\t')
     f.write(str(np.median(a_di)))

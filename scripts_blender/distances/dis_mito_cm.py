@@ -4,8 +4,8 @@ import pickle
 from scipy.spatial import Delaunay
 import re
 
-'''This script calculates the distance from the center of the cluster to the nearest mito. 
-The output is a python file per bouton with the distances.
+'''This script calculates the distance from the center of the cluster to the nearest mito and the minimum distance from the cluster to 
+SV cluster. The output is a python file per bouton with the distances.
 GCG
 12.05.23
 '''
