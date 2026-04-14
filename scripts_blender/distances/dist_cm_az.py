@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 import cellblender
 
-'''This file calculates the distance from center of the cluster to the AZ. I used a list with the active zones
+'''This file calculates the distance from center of the SV cluster to the AZ. I used a list with the active zones
 in case the terminal is a MSB. The output is a python file per bouton with all the distances (with the name of the SV cluster).
 The output is a pickle with the distance for each SV cluster.
 GCG

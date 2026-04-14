@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 import cellblender
 
-'''This file calculates the distance from each SV to the az (the minimum distance). I used a list with the active zones
+'''This file calculates the distance from each SV to the az. I used a list with the active zones
 in case the terminal is a MSB (in this case it computes both, but then saves the minimum distance).
 The output is a python file (per bouton) with all the distances.
 02-02-22
@@ -84,7 +84,7 @@ for i in azs:
             #bpy.context.scene.objects.active = bpy.data.objects[obj.name]
         else:
             print('this region not found',j)
-
+    #save all the distances per boutons
     the_filename = obj_name+'_az_dis'
     with open(the_filename, 'wb') as f:#
         pickle.dump(dmin, f)

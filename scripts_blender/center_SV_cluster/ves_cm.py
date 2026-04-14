@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 from scipy.spatial import Delaunay
 
-'''this script calculates the center of each SV cluster and calculates the dispersion from each SV to the center
+'''this script calculates the center of each SV cluster and calculates the distance from each SV to the center
 GCG
 11.30.22
 '''
@@ -38,14 +38,11 @@ if bpy.context.selected_objects != []:
         cm_verts[1] = np.mean(verts[:,1])
         cm_verts[2] = np.mean(verts[:,2])
 
-        sdt_dis_i = np.zeros(n)
-#        for i in range(0,n):
-#            sdt_dis_i[i] = (verts[i,0] - cm_verts[0])**2 + (verts[i,1] - cm_verts[1])**2 + (verts[i,2]- cm_verts[2])**2
+        dis_i = np.zeros(n)
         for i in range(0,n):
-            sdt_dis_i[i] = np.sqrt((verts[i,0] - cm_verts[0])**2 + (verts[i,1] - cm_verts[1])**2 + (verts[i,2]- cm_verts[2])**2)
+            dis_i[i] = np.sqrt((verts[i,0] - cm_verts[0])**2 + (verts[i,1] - cm_verts[1])**2 + (verts[i,2]- cm_verts[2])**2)
 
-        #std_dis = np.sqrt(np.sum(sdt_dis_i[:]))/n
-
+        #to create an object with the coordinates from the CM
         #cm_co_verts = []
         #for i in range(n):
         #    cm_co_verts.append((cm_verts[0],cm_verts[1],cm_verts[2]))
@@ -58,17 +55,10 @@ if bpy.context.selected_objects != []:
         #mymesh.from_pydata(cm_co_verts,[],[])
         #mymesh.update()
 
-        #dma = np.zeros((n,n))
-
-        #for i in range(0,n):
-        #    for j in range(0,n):
-        #        dma[i,j] = dist(verts[i,0],verts[i,1],verts[i,2],verts[j,0],verts[j,1],verts[j,2])
-
-        #min_dist = np.zeros((n))
 
         #the_filename = obj_name
         #with open(the_filename, 'wb') as f:#
         #    pickle.dump(std_dis, f)
         the_filename = obj_name
         with open(the_filename, 'wb') as f:#
-            pickle.dump(sdt_dis_i, f)
+            pickle.dump(dis_i, f)
