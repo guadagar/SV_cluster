@@ -4,7 +4,7 @@ import pickle
 from scipy.spatial import Delaunay, Voronoi,ConvexHull
 import re
 
-'''This script generates the voronoi cells of a set of points. The closed voronoi cells are considered, the intersection with the convex-hull (intersected with the mito & the axon)is performed. The meshes are also triangulated to calculate the volumes. It requieres the convex hull.
+'''This script generates the voronoi cells for each SV cluster. The closed voronoi cells are considered, the intersection with the convex-hull (intersected with the mito & the axon) is performed. The meshes are also triangulated to calculate the volumes. This script requieres the convex hull for each SV cluster.
 GCG
 12.13.23
 '''
@@ -34,7 +34,7 @@ for obj in objs:
     v = Voronoi(verts)
     vol_vor = np.zeros((len(v.point_region)))
     n_vor = 0
-    f = open(obj.name +'.txt','w') # In this file I write the volume of all the voronoi volumes (without intersections)
+    f = open(obj.name +'.txt','w') # In this file I write the volume of all the voronoi cells (without intersections)
 
     for i, reg_num in enumerate(v.point_region):
         indices = v.regions[reg_num] #vertices of the region reg_num
@@ -88,8 +88,7 @@ for obj in objs:
             bpy.ops.mesh.select_all(action='TOGGLE')
             bpy.ops.object.editmode_toggle()
 
-    #Comment these lines if you want to generate the voronoi volumes, if not they will be deleted after
-    #the volume for each is computed
+    #Comment these lines if you want to generate the voronoi cells (as objects in Blender), if not they will be       deleted after each volume is computed
 
     #select all the voronoi volumes
     objetos = bpy.context.scene.objects
@@ -108,7 +107,7 @@ for obj in objs:
     foo = bpy.data.texts['mesh_analysis.txt']
     bpy.data.texts.remove(foo)
 
-    #compute & save the values
+    #compute & delete the objects
     for i in my_objetos:
         i.select=  True
     bpy.ops.object.delete(use_global=False)

@@ -8,6 +8,12 @@ import csv
 from scipy.stats import skew
 import pandas as pd
 
+'''
+The intersection of each voronoi cell with the convex-hull was considered. The voronoi cell considered for further analysis are those that were unaltered after calculating the intersection (this was done to avoid border effects). 
+This script checks which are those voronoi cells.
+GCG
+'''
+
 folder_path = './fw_vor'
 
 f = open('fw_vor_med_distri_stats_v2.txt','w')
@@ -24,13 +30,13 @@ fw = data.loc[(data['Condition'] == 'LTP')  & (data['Animal'] == 'JB024') ]
 for name_cloud, nr_ves in zip(fw['name'], fw['nr_ves_in']):
     na.append(name_cloud)
 
-
 name_match = [] # to save in a list
 vor_match = []
 vol_match = []
 nr_ves_match =[]
 n_ves_files = 0
 n_ves_files_m = 0
+
 #I read all the voronoi volumes with intersection
 for filename in glob.glob(os.path.join(folder_path,'*.txt')):
 #for filename in glob.glob(os.path.join(folder_path,'d02c32Dax56_ssvr_vor_vol.txt')):
@@ -56,7 +62,7 @@ for filename in glob.glob(os.path.join(folder_path,'*.txt')):
     filename1 = name + '_ssvr.txt'
     folder_path1 = './fw_vor_original'
 
-    #save the voronoi that were not intersected (?)
+    #save the voronoi that were not intersected
     filename2 = name + '_ssvr.txt'
     folder_path2 = './fw_vor_con/'
     file = open(os.path.join(folder_path2,filename2),'w')
