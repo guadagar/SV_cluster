@@ -4,6 +4,8 @@ import pickle
 from scipy.spatial import Delaunay
 
 '''
+This script take each SV cluster and adds noise to the z-coordinate of each SV. A new object is created with the same name as 
+the SV cluster + _noise. Measurements were then 
 GCG
 02.04.22
 '''
