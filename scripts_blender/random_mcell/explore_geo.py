@@ -4,6 +4,10 @@ import shared
 import sys
 import importlib.util
 
+'''
+This script was used to explore the geometry file
+'''
+
 MODEL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 MCELL_PATH = os.environ.get('MCELL_PATH', '')
