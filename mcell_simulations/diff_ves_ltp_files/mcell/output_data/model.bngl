@@ -1,0 +1,22 @@
+# WARNING: This is an automatically generated file and will be overwritten
+#          by CellBlender on the next model export.
+
+# File uses standard MCell units for bimolecular reactions (M^-1*s^-1 and um^2*N^-1*s^-1).
+# When used with MCell, global option Model.config.use_bng_units must be set to False.
+# WARNING: Simulation with BioNetGen won't produce correct results because BioNetGen uses different units than MCell.
+
+begin parameters
+    f_rate 1e38/100
+
+end parameters
+
+begin molecule types
+    ves_in
+    ves_out
+end molecule types
+
+begin reaction rules
+#     reaction '' was generated as Python code because it contains features not supported by BNGL
+#     reaction '' was generated as Python code because it contains features not supported by BNGL
+end reaction rules
+
