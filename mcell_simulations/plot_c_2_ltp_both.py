@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jun 26 17:16:55 2025
-
-@author: ggarcia
-"""
-
 #!/usr/bin/env python
 
 import matplotlib.pyplot as plt
@@ -14,6 +6,12 @@ import pickle
 import matplotlib as mpl
 import pandas as pd
 from matplotlib.lines import Line2D
+
+"""
+This script generates fig 7B from the paper. It uploads the results from the biophysical simulations. 
+GCG
+"""
+
 
 params = {'axes.labelsize': 6,
            'axes.titlesize': 6,
@@ -89,5 +87,5 @@ plt.xlim(0,5)
 ax.set_ylabel(r'# SVs cluster',fontsize=6,labelpad=0.01)
 ax.set_xlabel(r'Time (sec)',fontsize=6,labelpad=0.01)
 
-plt.savefig('timec2ltp_m_nm.png', dpi=600)
+#plt.savefig('timec2ltp_m_nm.png', dpi=600)
 plt.show()
