@@ -6,7 +6,9 @@ import csv
 from scipy import stats
 
 '''
-I do boostraping to estimate the volume of the vesicles
+This script uses boostraping to estimate the SV radius for each series.
+The output is the mean SV radius per series.
+GCG
 '''
 
 mi = []
@@ -36,9 +38,7 @@ rad_m = a_rad[idx_m]
 sampled_ves_vol_nm = rad_nm
 sampled_ves_vol_m = rad_m
 
-#f = open('../latest_results/data/vesicles/mean_ves_vol_xr.txt','w')
-
-nrep = 10000 #number of times I repeat
+nrep = 10000 #number of times I repeat the process
 f_ves_vol_nm = np.zeros((1, nrep))
 
 for k in range(0,nrep):
@@ -66,26 +66,5 @@ std_me = np.std(f_ves_vol_m[0,:]) #SEM
     #plt.errorbar(np.arange(100),(4/3.0)*np.pi*(mu_nm)**3*1e-9*np.ones(100),marker = 'o',color='k')
 print('m',np.round(ra_me,decimals=4),np.round(std_me,decimals=4))
 
-# for i,j in enumerate(nrv_nm):
-#     #print(f_ves_vol_nm[0,i]/j)
-#     f.write(na_nm[i])
-#     f.write('\t')
-#     f.write(str(f_ves_vol_nm[0,i])) #mean
-#     f.write('\t')
-#     f.write(str(f_ves_vol_nm[1,i])) #std
-#     f.write('\t')
-#     f.write(str(j)) #std
-#     f.write('\n')
-#
-# for i,j in enumerate(nrv_m):
-#     #print(f_ves_vol_nm[0,i]/j)
-#     f.write(na_m[i])
-#     f.write('\t')
-#     f.write(str(f_ves_vol_m[0,i])) #mean
-#     f.write('\t')
-#     f.write(str(f_ves_vol_m[1,i])) #std
-#     f.write('\t')
-#     f.write(str(j)) #std
-#     f.write('\n')
 
-plt.show()
+#plt.show()

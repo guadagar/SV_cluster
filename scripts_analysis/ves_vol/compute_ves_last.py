@@ -6,7 +6,9 @@ import csv
 from scipy import stats
 
 '''
-I do boostraping to estimate the volume of the vesicles
+This script uses boostraping to estimate the total SV volume at each synapse.
+The output is a text file containing the synapse name and the total SV volume.
+GCG
 '''
 
 mi = []
@@ -36,19 +38,21 @@ rad_m = a_rad[idx_m]
 sampled_ves_vol_nm = (4.0/3.0)*np.pi*rad_nm**3
 sampled_ves_vol_m = (4.0/3.0)*np.pi*rad_m**3
 
+#output file
 f = open('../latest_results/data/vesicles/tot_ves_vol_xr.txt','w')
 
 name = []
 nrv = []
 miv = []
 
+#read the name of the boutons
 with open('../latest_results/data/all_data_together/xr_all_data.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='"')
     next(reader, None)
     for row in reader:
-        name.append(row[0])
-        nrv.append(float(row[3]))
-        miv.append(float(row[5]))
+        name.append(row[0]) #name bouton
+        nrv.append(float(row[3])) #number of SVs
+        miv.append(float(row[5])) #mito vol
 
 idx_m = []
 idx_nm = []
@@ -71,7 +75,7 @@ na_m = []
 for i in idx_m:
     na_m.append(name[i])
 
-nrep = 10000 #number of times I repeat
+nrep = 10000 #number of times I repeat the process
 f_ves_vol_nm = np.zeros((2,len(nrv_nm)))
 for i,j in enumerate(nrv_nm):
     ves_tot = np.zeros((nrep))
@@ -81,8 +85,8 @@ for i,j in enumerate(nrv_nm):
         ves_vol_nm = x
         ves_tot[k] = np.sum(ves_vol_nm)
         #plt.errorbar(k,np.mean(ves_tot[np.nonzero(ves_tot)])/j,marker = 'o',color='r')
-    f_ves_vol_nm[0,i] = np.mean(ves_tot) #Mean
-    f_ves_vol_nm[1,i] = np.std(ves_tot) #SEM
+    f_ves_vol_nm[0,i] = np.mean(ves_tot)
+    f_ves_vol_nm[1,i] = np.std(ves_tot)
     #plt.errorbar(np.arange(100),(4/3.0)*np.pi*(mu_nm)**3*1e-9*np.ones(100),marker = 'o',color='k')
 
 f_ves_vol_m = np.zeros((2,len(nrv_m)))
@@ -118,4 +122,4 @@ for i,j in enumerate(nrv_m):
     f.write(str(j)) #std
     f.write('\n')
 
-plt.show()
+#plt.show()
