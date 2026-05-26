@@ -2,8 +2,6 @@
   <img src="dis_az_v2.png">
 </p>
 
-This repository is currently under development.
-
 # Transition of the presynaptic vesicle cluster from a compact to dispersed organization during long-term potentiation
 [DOI:pnas.2522754123](https://doi.org/10.1073/pnas.2522754123)
 
@@ -17,4 +15,4 @@ All the scripts are written in Python version 3.9.19. The Blender version 2.79. 
 
 Please cite the following paper:
 
-[Garcia G.C., Bartol T.M., Kirk L.M., Badala P., Harris K.M., and Sejnowski T.J. (2026). Transition of the presynaptic vesicle cluster from a compact to dispersed organization during long-term potentiation.](https://doi.org/10.1073/pnas.2522754123)
+[Garcia G.C., Bartol T.M., Kirk L.M., Badala P., Harris K.M., and Sejnowski T.J. (2026) Transition of the presynaptic vesicle cluster from a compact to dispersed organization during long-term potentiation. PNAS 123 (22) e25227541.](https://doi.org/10.1073/pnas.2522754123)
