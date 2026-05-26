@@ -5,7 +5,7 @@
 This repository is currently under development.
 
 # Transition of the presynaptic vesicle cluster from a compact to dispersed organization during long-term potentiation
-[DOI:](https://doi.org/10.1073/pnas.2522754123)
+[DOI:pnas.2522754123](https://doi.org/10.1073/pnas.2522754123)
 
 Welcome to the repository for the manuscript titled "Transition of the presynaptic vesicle cluster from a compact to dispersed organization during long-term potentiation". This repository contains all the code created for this publication, for the analysis of the 3D reconstructions, biophysical simulations, and figures in the paper. Additional materials, such as electron microscopy images, 2D traces, and 3D reconstructions in Blender, are available [here](https://doi.org/10.18738/T8/UN9GUL). 
 
